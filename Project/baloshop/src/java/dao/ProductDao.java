@@ -20,6 +20,9 @@ import jdbc.SQLServerConnection;
  */
 public class ProductDao implements MethodDao<Product> {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Product> getAll() {
         String query = "SELECT * FROM product";
@@ -49,6 +52,9 @@ public class ProductDao implements MethodDao<Product> {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Product getOne(int id) {
         String query = "SELECT * FROM product WHERE id = ?";
@@ -79,6 +85,9 @@ public class ProductDao implements MethodDao<Product> {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean add(Product obj) {
         String query = "INSERT INTO product(category_id, code, name, quantity, price,"
@@ -104,6 +113,9 @@ public class ProductDao implements MethodDao<Product> {
         return check > 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean update(Product obj, int id) {
         String query = "UPDATE product SET category_id = ?, code = ?, name = ?,"
@@ -130,6 +142,9 @@ public class ProductDao implements MethodDao<Product> {
         return check > 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean remove(int id) {
         String query = "DELETE FROM product WHERE id = ?";
@@ -144,5 +159,4 @@ public class ProductDao implements MethodDao<Product> {
         }
         return false;
     }
-
 }
