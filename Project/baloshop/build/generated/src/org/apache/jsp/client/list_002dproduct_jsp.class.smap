@@ -1,0 +1,12 @@
+SMAP
+list_002dproduct_jsp.java
+JSP
+*S JSP
+*F
++ 0 list-product.jsp
+client/list-product.jsp
+*L
+5,12:46
+17:58,3
+18,3:61
+*E

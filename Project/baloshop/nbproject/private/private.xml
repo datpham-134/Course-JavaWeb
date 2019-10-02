@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Shado/Downloads/baloshop/src/java/entity/Product.java</file>
-            <file>file:/C:/Users/Shado/Downloads/baloshop/src/java/test/Test.java</file>
-            <file>file:/C:/Users/Shado/Downloads/baloshop/src/java/jdbc/SQLServerConnection.java</file>
-            <file>file:/C:/Users/Shado/Downloads/baloshop/src/java/dao/ProductDao.java</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/Course-JavaWeb/Project/baloshop/src/java/controller/client/GetListProduct.java</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/Course-JavaWeb/Project/baloshop/web/client/list-product.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/Course-JavaWeb/Project/baloshop/web/client/index.jsp</file>
         </group>
     </open-files>
 </project-private>

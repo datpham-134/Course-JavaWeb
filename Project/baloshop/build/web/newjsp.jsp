@@ -1,7 +1,7 @@
 <%-- 
     Document   : newjsp
-    Created on : Sep 24, 2019, 2:57:18 PM
-    Author     : anhdt45
+    Created on : Oct 2, 2019, 9:06:09 PM
+    Author     : Shado
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>${listProduct}</h1>
     </body>
 </html>

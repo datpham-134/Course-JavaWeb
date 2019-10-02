@@ -1,6 +1,6 @@
 <%-- 
-    Document   : newjsp
-    Created on : Oct 2, 2019, 9:06:09 PM
+    Document   : index
+    Created on : Oct 2, 2019, 8:47:15 PM
     Author     : Shado
 --%>
 
@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>${listProduct}</h1>
+        <h1>
+            <a href="../get-list-product">List Product</a>
+        </h1>
     </body>
 </html>

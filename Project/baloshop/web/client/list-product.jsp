@@ -1,6 +1,6 @@
 <%-- 
-    Document   : newjsp
-    Created on : Oct 2, 2019, 9:06:09 PM
+    Document   : list-product.jsp
+    Created on : Oct 2, 2019, 8:56:56 PM
     Author     : Shado
 --%>
 
