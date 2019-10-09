@@ -30,4 +30,8 @@ public class Product {
     private String image;
     private String createDate;
     private int status;
+    
+    public String getDisplayPrice() {
+        return String.format("%,.0f", price).replace(",", ".");
+    }
 }

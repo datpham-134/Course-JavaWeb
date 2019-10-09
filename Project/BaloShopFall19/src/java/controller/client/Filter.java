@@ -22,8 +22,8 @@ import service.ProductService;
  *
  * @author Shado
  */
-@WebServlet(name = "GetListProduct", urlPatterns = {"/get-list-product"})
-public class GetListProduct extends HttpServlet {
+@WebServlet(name = "Filter", urlPatterns = {"/filter"})
+public class Filter extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,12 +38,15 @@ public class GetListProduct extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            List<Product> listProduct = new ProductService().getAll();
+            int id = Integer.parseInt(request.getParameter("id"));
+            List<Product> listProduct = new ProductService().getAllByCategoryId(id);
             List<Category> listCategory = new CategoryService().getAll();
             
             request.setAttribute("listProduct", listProduct);
             request.setAttribute("listCategory", listCategory);
             request.getRequestDispatcher("client/list-product.jsp").forward(request, response);
+        
+            
         }
     }
 
