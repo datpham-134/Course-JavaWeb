@@ -5,18 +5,14 @@
  */
 package controller.client;
 
-import entity.Category;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.CategoryService;
 import service.ProductService;
 import util.NumberHelper;
 
@@ -24,8 +20,8 @@ import util.NumberHelper;
  *
  * @author Shado
  */
-@WebServlet(name = "Filter", urlPatterns = {"/filter"})
-public class Filter extends HttpServlet {
+@WebServlet(name = "ProductDetail", urlPatterns = {"/detail"})
+public class ProductDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,18 +40,10 @@ public class Filter extends HttpServlet {
             if (id == -1) {
                 response.sendRedirect("client/error.jsp");
             } else {
-                List<Product> listProduct = new ArrayList<>();
-                if(id == 0) {
-                    listProduct = new ProductService().getAll();
-                }else {
-                    listProduct = new ProductService().getAllByCategoryId(id);
-                }
-                List<Category> listCategory = new CategoryService().getAll();
-
-                request.setAttribute("listProduct", listProduct);
-                request.setAttribute("listCategory", listCategory);
-                request.getRequestDispatcher("client/list-product.jsp").forward(request, response);
-            }
+                Product product = new ProductService().getOne(id);
+                request.setAttribute("product", product);
+                request.getRequestDispatcher("client/detail.jsp").forward(request, response);
+            }       
         }
     }
 

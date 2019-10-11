@@ -83,6 +83,37 @@ public class ProductDao implements MethodDao<Product> {
         return null;
     }
     
+    public List<Product> search(String text) {
+        String query = "SELECT * FROM product WHERE name LIKE ?";
+        List<Product> list = new ArrayList<>();
+        try (Connection con = SQLServerConnection.getConnection();
+                PreparedStatement ps = (con != null) ? con.prepareStatement(query) : null;) {
+            if (ps != null) {
+                ps.setObject(1, "%"+text+"%");
+                ResultSet rs = ps.executeQuery();          
+                while (rs != null && rs.next()) {
+                    Product product = Product.builder()
+                            .id(rs.getInt(1))
+                            .categoryId(rs.getInt(2))
+                            .code(rs.getString(3))
+                            .name(rs.getString(4))
+                            .quantity(rs.getInt(5))
+                            .price(rs.getDouble(6))
+                            .description(rs.getString(7))
+                            .image(rs.getString(8))
+                            .createDate(rs.getString(9))
+                            .status(rs.getInt(10))
+                            .build();
+                    list.add(product);
+                }
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+    
     /**
      * {@inheritDoc}
      */

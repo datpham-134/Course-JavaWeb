@@ -5,7 +5,6 @@
  */
 package service;
 
-import dao.CategoryDao;
 import dao.MethodDao;
 import dao.ProductDao;
 import entity.Product;
@@ -29,6 +28,10 @@ public class ProductService implements MethodService<Product> {
     
     public List<Product> getAllByCategoryId(int categoryId) {
         return new ProductDao().getAllByCategoryId(categoryId);
+    }
+    
+    public List<Product> search(String text) {
+        return new ProductDao().search(text);
     }
 
     /**
