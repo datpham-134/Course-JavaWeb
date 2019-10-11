@@ -5,14 +5,17 @@
  */
 package controller.client;
 
+import entity.Image;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import service.ImageService;
 import service.ProductService;
 import util.NumberHelper;
 
@@ -41,7 +44,17 @@ public class ProductDetail extends HttpServlet {
                 response.sendRedirect("client/error.jsp");
             } else {
                 Product product = new ProductService().getOne(id);
+                List<Image> listImage = new ImageService().getAllByProductId(id);
+                
+                Image image = Image.builder()
+                        .productId(id)
+                        .imageName(product.getImage())
+                        .status(1)
+                        .build();
+                listImage.add(image);
+                
                 request.setAttribute("product", product);
+                request.setAttribute("listImage", listImage);
                 request.getRequestDispatcher("client/detail.jsp").forward(request, response);
             }       
         }

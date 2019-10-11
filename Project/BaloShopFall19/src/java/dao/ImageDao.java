@@ -5,7 +5,7 @@
  */
 package dao;
 
-import entity.Category;
+import entity.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,22 +18,30 @@ import jdbc.SQLServerConnection;
  *
  * @author Shado
  */
-public class CategoryDao implements MethodDao<Category> {
+public class ImageDao implements MethodDao<Image> {
 
     @Override
-    public List<Category> getAll() {
-        String query = "SELECT * FROM category";
-        List<Category> list = new ArrayList<>();
+    public List<Image> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Image> getAllByProductId(int productId) {
+        String query = "SELECT * FROM image WHERE product_id = ?";
+        List<Image> list = new ArrayList<>();
         try (Connection con = SQLServerConnection.getConnection();
                 PreparedStatement ps = (con != null) ? con.prepareStatement(query) : null;) {
-            ResultSet rs = (ps != null) ? ps.executeQuery() : null;
-            while (rs != null && rs.next()) {
-                Category category = Category.builder()
-                        .id(rs.getInt(1))
-                        .category(rs.getString(2))
-                        .status(rs.getInt(3))
-                        .build();
-                list.add(category);
+            if (ps != null) {
+                ps.setObject(1, productId);
+                ResultSet rs = ps.executeQuery();
+                while (rs != null && rs.next()) {
+                    Image image = Image.builder()
+                            .id(rs.getInt(1))
+                            .productId(rs.getInt(2))
+                            .imageName(rs.getString(3))
+                            .status(rs.getInt(4))
+                            .build();
+                    list.add(image);
+                }
             }
             return list;
         } catch (SQLException e) {
@@ -43,17 +51,17 @@ public class CategoryDao implements MethodDao<Category> {
     }
 
     @Override
-    public Category getOne(int id) {
+    public Image getOne(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean add(Category object) {
+    public boolean add(Image object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Category object, int id) {
+    public boolean update(Image object, int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
