@@ -19,12 +19,16 @@
                     <a class="nav-link" href="get-list-product">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Giỏ hàng</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i>${sessionScope.listCart.size()}
+                    </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="search" method="post">
                 <input class="form-control mr-sm-2" type="text" name="inputSearch" placeholder="Search..." />
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
     </div>

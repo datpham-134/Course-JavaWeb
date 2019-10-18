@@ -15,6 +15,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="assets/css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/all.css" rel="stylesheet" type="text/css"/>
         <title>Chi tiết</title>
     </head>
     <body>
@@ -45,16 +46,18 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5 mt-5">
-                    <h3 class="mt-5">${product.name}
-                        <c:if test="${product.status == 2}">
+                    <h3 class="mt-5">${requestScope.product.name}
+                        <c:if test="${requestScope.product.status == 2}">
                             <sup><span class="badge badge-success ml-1">SALE</span></sup>
                         </c:if>
                     </h3>
-                    <p>Mã sản phẩm: ${product.code}</p>
-                    <h4 class="mt-3">${product.displayPrice}<sup>đ</sup></h4>
-                    <a href="" class="btn btn-danger w-100 mt-4">Thêm vào giỏ hàng</a>
+                    <p>Mã sản phẩm: ${requestScope.product.code}</p>
+                    <h4 class="mt-3">${requestScope.product.displayPrice}<sup>đ</sup></h4>
+                    <a href="add-to-cart?id=${requestScope.product.id}" class="btn btn-outline-danger w-50 mt-4">Thêm vào giỏ hàng</a>
+                    <a href="" class="btn btn-outline-success w-25 mt-4 ml-2">Mua ngay</a>
+                    <br>
                     <label class="mt-4"><b>Thông tin sản phẩm:</b></label>
-                    <p>${product.description}</p>
+                    <p>${requestScope.product.description}</p>
                 </div>
             </div>
         </div>
