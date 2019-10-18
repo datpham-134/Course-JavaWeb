@@ -53,7 +53,7 @@
                     </h3>
                     <p>Mã sản phẩm: ${requestScope.product.code}</p>
                     <h4 class="mt-3">${requestScope.product.displayPrice}<sup>đ</sup></h4>
-                    <a href="add-to-cart?id=${requestScope.product.id}" class="btn btn-outline-danger w-50 mt-4">Thêm vào giỏ hàng</a>
+                    <a href="add-to-cart?id=${requestScope.product.id}" class="btn btn-outline-danger w-50 mt-4"><i class="fas fa-cart-plus mr-1"></i>Thêm vào giỏ hàng</a>
                     <a href="" class="btn btn-outline-success w-25 mt-4 ml-2">Mua ngay</a>
                     <br>
                     <label class="mt-4"><b>Thông tin sản phẩm:</b></label>
