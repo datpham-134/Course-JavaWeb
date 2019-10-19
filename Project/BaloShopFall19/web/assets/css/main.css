@@ -29,12 +29,17 @@
     color: #007bff;
 }
 
+/* Cart */
 .popup-list-cart img {
     width: 40px;
 }
 
 .dropdown-menu .popup-list-cart {
     width: 300px;
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
 
 .f-small {
@@ -45,10 +50,10 @@
     text-decoration: none;
 }
 
+
 * {
   box-sizing: border-box;
 }
-
 
 /* Hide the images by default */
 .mySlides {

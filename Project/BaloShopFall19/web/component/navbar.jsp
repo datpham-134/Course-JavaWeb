@@ -5,6 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -21,22 +22,29 @@
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Giỏ hàng
+                        Giỏ hàng <sup>${sessionScope.listCart.size()}</sup>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div class="popup-list-cart">
-                            <table>
-                                <c:forEach items="${sessionScope.listCart}" var="cart">
-                                    <tr>
-                                        <td class="px-2"><img src="assets/images/products/${cart.productImg}"></td>
-                                        <td class="f-small"><a href="detail?id=${cart.productId}">${cart.productName}</a></td>
-                                        <td class="px-3 f-small">x ${cart.quantity}</td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Check-out</a>
+                        <c:choose>
+                            <c:when test="${sessionScope.listCart eq null}">
+                                <span class="mx-3">Giỏ hàng trống</span>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="popup-list-cart">
+                                    <table>
+                                        <c:forEach items="${sessionScope.listCart}" var="cart">
+                                            <tr>
+                                                <td class="px-2"><img src="assets/images/products/${cart.productImg}"></td>
+                                                <td class="f-small"><a href="detail?id=${cart.productId}">${cart.productName}</a></td>
+                                                <td class="px-3 f-small">x ${cart.quantity}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Check-out</a>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </li>
                 <li class="nav-item ml-3 mr-4">
