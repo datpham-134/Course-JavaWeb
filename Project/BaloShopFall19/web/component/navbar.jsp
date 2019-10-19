@@ -20,7 +20,7 @@
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Giỏ hàng <sup>${sessionScope.listCart.size()}</sup>
+                        <i class="fas fa-shopping-cart mr-1"></i>Giỏ hàng <sup>${sessionScope.listCart.size()}</sup>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <c:choose>
@@ -47,7 +47,7 @@
                 </li>
                 <li class="nav-item ml-3 mr-4">
                     <a class="nav-link active" href="#">
-                        <i class="fas fa-shopping-cart"></i> <sup>${sessionScope.listCart.size()}</sup>
+                        <i class="fas fa-shopping-cart mr-1"></i><sup>${sessionScope.listCart.size()}</sup>
                     </a>
                 </li>
             </ul>
