@@ -19,7 +19,7 @@
                     <a class="nav-link" href="get-list-product"><i class="fas fa-home mr-1"></i>Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-shopping-cart mr-1"></i>Giỏ hàng <sup>${sessionScope.listCart.size()}</sup>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,15 +40,10 @@
                                     </table>
                                 </div>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Check-out</a>
+                                <a class="dropdown-item" href="cart">Xem giỏ hàng</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
-                </li>
-                <li class="nav-item ml-3 mr-4">
-                    <a class="nav-link active" href="#">
-                        <i class="fas fa-shopping-cart mr-1"></i><sup>${sessionScope.listCart.size()}</sup>
-                    </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="search" method="post">

@@ -12,10 +12,12 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Front Awesome -->
+        <link href="assets/css/all.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap CSS -->
         <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/main.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/all.css" rel="stylesheet" type="text/css"/>
+        
         <title>Sản phẩm</title>
     </head>
     <body>
@@ -54,6 +56,9 @@
                                             <div class="card-body pt-0">
                                                 <a href="detail?id=${product.id}" class="card-title text-center mb-1">${product.name}</a>
                                                 <p class="text-center my-0">${product.displayPrice}<sup>đ</sup></p>
+                                                <p class="text-center my-0">
+                                                    <a href=""><i class="fas fa-shopping-cart mt-2"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
