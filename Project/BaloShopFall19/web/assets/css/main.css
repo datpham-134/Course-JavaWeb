@@ -1,6 +1,5 @@
 .form-control {
     height: calc(1.5em + .5rem + 2px);
-    border: none;
 }
 
 .navbar .btn {
@@ -48,6 +47,10 @@
 
 .f-small a:hover {
     text-decoration: none;
+}
+
+.table td, .table th {
+    vertical-align: middle;
 }
 
 

@@ -17,7 +17,7 @@
         <!-- Bootstrap CSS -->
         <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/main.css" rel="stylesheet" type="text/css"/>
-        
+
         <title>Sản phẩm</title>
     </head>
     <body>
@@ -54,7 +54,11 @@
                                         <div class="card">                          
                                             <img src="assets/images/products/${product.image}" class="card-img-top pt-4" alt="...">
                                             <div class="card-body pt-0">
-                                                <a href="detail?id=${product.id}" class="card-title text-center mb-1">${product.name}</a>
+                                                <a href="detail?id=${product.id}" class="card-title text-center mb-1">${product.name}
+                                                    <c:if test="${product.status == 2}">
+                                                        <sup><span class="badge badge-success ml-1">SALE</span></sup>
+                                                    </c:if>
+                                                </a>
                                                 <p class="text-center my-0">${product.displayPrice}<sup>đ</sup></p>
                                                 <p class="text-center my-0">
                                                     <a href=""><i class="fas fa-shopping-cart mt-2"></i></a>
