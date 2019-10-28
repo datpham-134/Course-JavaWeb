@@ -29,11 +29,16 @@
                 <!-- Show list category -->
                 <div class="col-md-3">
                     <h5 class="mt-5">Danh mục</h5>
-                    <div class="category mt-3">
+                    <div class="category mt-2">
                         <a href="filter?id=0">Tất cả</a>
                         <c:forEach items="${requestScope.listCategory}" var="category">
                             <a href="filter?id=${category.id}">${category.category}</a>
                         </c:forEach>
+                    </div>
+                    <div class="category mt-5">
+                        <a href="#">Hàng mới về<sup><span class="badge badge-info ml-2">NEW</span></sup></a>
+                        <a href="#">Hàng hot<sup><span class="badge badge-danger ml-2">HOT</span></sup></a>
+                        <a href="#">Hàng đang giảm giá<sup><span class="badge badge-success ml-2">SALE</span></sup></a>
                     </div>
                 </div>
                 <!-- end -->
@@ -52,8 +57,8 @@
                                     <!-- Show product -->
                                     <div class="col-md-4 mb-3 mt-2">
                                         <div class="card">                          
-                                            <img src="assets/images/products/${product.image}" class="card-img-top pt-4" alt="...">
-                                            <div class="card-body pt-0">
+                                            <img src="assets/images/products/${product.image}" class="card-img-top pt-2" alt="...">
+                                            <div class="card-body pt-0 pb-3">
                                                 <a href="detail?id=${product.id}" class="card-title text-center mb-1">${product.name}
                                                     <c:if test="${product.status == 2}">
                                                         <sup><span class="badge badge-success ml-1">SALE</span></sup>
@@ -61,7 +66,7 @@
                                                 </a>
                                                 <p class="text-center my-0">${product.displayPrice}<sup>đ</sup></p>
                                                 <p class="text-center my-0">
-                                                    <a href=""><i class="fas fa-shopping-cart mt-2"></i></a>
+                                                    <a href=""><i class="fas fa-cart-plus mt-2"></i></a>
                                                 </p>
                                             </div>
                                         </div>

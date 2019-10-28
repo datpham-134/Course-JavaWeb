@@ -67,7 +67,7 @@
                     <h4>Thông tin khách hàng</h4>
                     <div class="card mt-3">
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="checkout-order" method="post">
                                 <div class="form-group">
                                     <label for="name">Họ và tên</label>
                                     <input type="text" class="form-control" name="name">
@@ -79,6 +79,10 @@
                                 <div class="form-group">
                                     <label for="address">Địa chỉ</label>
                                     <textarea class="form-control" rows="2" name="address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="note">Ghi chú</label>
+                                    <textarea class="form-control" rows="2" name="note"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-success w-100">Xác nhận</button>
                             </form>

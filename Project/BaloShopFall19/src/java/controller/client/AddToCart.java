@@ -73,7 +73,6 @@ public class AddToCart extends HttpServlet {
                 }
             }
             session.setAttribute("listCart", listCart);
-            listCart.forEach(System.out::println);
             response.sendRedirect("detail?id=" + productId);
         }
     }

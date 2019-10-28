@@ -42,7 +42,7 @@ public class Filter extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int id = NumberHelper.getId(request.getParameter("id"));
             if (id == -1) {
-                response.sendRedirect("client/error.jsp");
+                response.sendRedirect("error");
             } else {
                 List<Product> listProduct = new ArrayList<>();
                 if(id == 0) {

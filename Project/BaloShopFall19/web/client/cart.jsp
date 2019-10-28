@@ -28,8 +28,10 @@
             <c:choose>
                 <c:when test="${sessionScope.listCart eq null || sessionScope.listCart.isEmpty()}">
                     <div class="text-center mt-5">
-                        <h4>Giỏ hàng trống.</h4>
-                        <a href="get-list-product" class="btn btn-success mt-2">Quay lại</a>
+                        <div class="alert alert-success text-center mt-5 p-3" role="alert">
+                            <h5>Giỏ hàng trống.</h5>
+                            <a href="get-list-product" class="btn btn-success mt-2"><i class="fas fa-arrow-left mr-2"></i>Quay lại</a>
+                        </div>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -64,7 +66,7 @@
                                             <fmt:formatNumber type="currency" value="${cart.productPrice * cart.quantity}" />       
                                         </td>
                                         <td>
-                                            <a href="remove-cart?flag=1&id=${cart.productId}" class="btn btn-danger">
+                                            <a href="remove-cart?id=${cart.productId}" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
@@ -78,7 +80,7 @@
                             </div>
                             <hr/>
                             <div class="text-right">               
-                                <a href="remove-cart?flag=0" class="btn btn-danger"><i class="fas fa-trash mr-2"></i>Xoá giỏ hàng</a>
+                                <a href="remove-cart?id=0" class="btn btn-danger"><i class="fas fa-trash mr-2"></i>Xoá giỏ hàng</a>
                                 <button type="submit" class="btn btn-info ml-2"><i class="fas fa-sync-alt mr-2"></i>Cập nhật</button>
                                 <a href="checkout" class="btn btn-success ml-2">Tiếp tục<i class="fas fa-arrow-right ml-2"></i></a>
                             </div>

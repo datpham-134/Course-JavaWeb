@@ -41,22 +41,26 @@ public class ProductDetail extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int id = NumberHelper.getId(request.getParameter("id"));
             if (id == -1) {
-                response.sendRedirect("client/error.jsp");
+                response.sendRedirect("error");
             } else {
                 Product product = new ProductService().getOne(id);
-                List<Image> listImage = new ImageService().getAllByProductId(id);
-                
-                Image image = Image.builder()
-                        .productId(id)
-                        .imageName(product.getImage())
-                        .status(1)
-                        .build();
-                listImage.add(image);
-                
-                request.setAttribute("product", product);
-                request.setAttribute("listImage", listImage);
-                request.getRequestDispatcher("client/detail.jsp").forward(request, response);
-            }       
+                if (product != null) {
+                    List<Image> listImage = new ImageService().getAllByProductId(id);
+
+                    Image image = Image.builder()
+                            .productId(id)
+                            .imageName(product.getImage())
+                            .status(1)
+                            .build();
+                    listImage.add(image);
+
+                    request.setAttribute("product", product);
+                    request.setAttribute("listImage", listImage);
+                    request.getRequestDispatcher("client/detail.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect("error");
+                }
+            }
         }
     }
 

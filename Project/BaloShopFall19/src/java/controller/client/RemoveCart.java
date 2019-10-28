@@ -37,27 +37,23 @@ public class RemoveCart extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int flag = NumberHelper.getId(request.getParameter("flag"));
-            if (flag == -1) {
-                response.sendRedirect("client/error.jsp");
-            } else {
-                HttpSession session = request.getSession();
-                if (flag == 0) {
-                    session.removeAttribute("listCart");
-                } else {
-                    int id = NumberHelper.getId(request.getParameter("id"));
-                    if (id == -1) {
-                        response.sendRedirect("client/error.jsp");
-                    } else {
-                        List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
-                        for (int i = listCart.size() - 1; i >= 0; i--) {
-                            if (id == listCart.get(i).getProductId()) {
-                                listCart.remove(i);
-                            }
-                        }
-                        response.sendRedirect("cart");
+
+            int productId = NumberHelper.getId(request.getParameter("id"));
+            HttpSession session = request.getSession();
+            if (productId > 0) {
+                List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
+                for (int i = listCart.size() - 1; i >= 0; i--) {
+                    if (listCart.get(i).getProductId() == productId) {
+                        listCart.remove(i);
                     }
                 }
+                session.setAttribute("listCart", listCart);
+                response.sendRedirect("cart");
+            } else if (productId == 0) {
+                session.removeAttribute("listCart");
+                response.sendRedirect("cart");
+            } else {
+                response.sendRedirect("error");
             }
         }
     }

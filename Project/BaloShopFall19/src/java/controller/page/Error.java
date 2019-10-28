@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.client;
+package controller.page;
 
-import entity.Cart;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Shado
  */
-@WebServlet(name = "SyncCart", urlPatterns = {"/sync-cart"})
-public class SyncCart extends HttpServlet {
+@WebServlet(name = "Error", urlPatterns = {"/error"})
+public class Error extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,16 +33,7 @@ public class SyncCart extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            HttpSession session = request.getSession();
-            List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
-
-            for (int i = 1; i <= listCart.size(); i++) {
-                int quantity = Integer.valueOf(request.getParameter("quantity"+i));
-                listCart.get(i-1).setQuantity(quantity);
-            }
-            session.setAttribute("listCart", listCart);
-            response.sendRedirect("cart");
+            request.getRequestDispatcher("client/error.jsp").forward(request, response);
         }
     }
 
