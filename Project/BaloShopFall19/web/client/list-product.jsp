@@ -36,8 +36,8 @@
                         </c:forEach>
                     </div>
                     <div class="category mt-5">
-                        <a href="#">Hàng mới về<sup><span class="badge badge-info ml-2">NEW</span></sup></a>
                         <a href="#">Hàng hot<sup><span class="badge badge-danger ml-2">HOT</span></sup></a>
+                        <a href="#">Hàng mới về<sup><span class="badge badge-info ml-2">NEW</span></sup></a>                   
                         <a href="#">Hàng đang giảm giá<sup><span class="badge badge-success ml-2">SALE</span></sup></a>
                     </div>
                 </div>
