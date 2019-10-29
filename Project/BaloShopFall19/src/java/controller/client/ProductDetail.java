@@ -9,6 +9,7 @@ import entity.Image;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,6 +54,10 @@ public class ProductDetail extends HttpServlet {
                             .status(1)
                             .build();
                     listImage.add(image);
+                    
+                    listImage.sort((Image o1, Image o2) -> {
+                        return o1.getImageName().compareToIgnoreCase(o2.getImageName());
+                    });
 
                     request.setAttribute("product", product);
                     request.setAttribute("listImage", listImage);

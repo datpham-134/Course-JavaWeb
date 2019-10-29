@@ -55,19 +55,26 @@
                             <c:otherwise>
                                 <c:forEach items="${requestScope.listProduct}" var="product">
                                     <!-- Show product -->
-                                    <div class="col-md-4 mb-3 mt-2">
-                                        <div class="card">                          
-                                            <img src="assets/images/products/${product.image}" class="card-img-top pt-2" alt="...">
-                                            <div class="card-body pt-0 pb-3">
-                                                <a href="detail?id=${product.id}" class="card-title text-center mb-1">${product.name}
-                                                    <c:if test="${product.status == 2}">
-                                                        <sup><span class="badge badge-success ml-1">SALE</span></sup>
-                                                    </c:if>
-                                                </a>
+                                    <div class="col-md-3 mb-3 mt-2 products">
+                                        <div class="card">
+                                            <c:if test="${product.status == 2}">
+                                                <div class="status">
+                                                    <img src="assets/images/icon-sale.png" alt="icon-sale">
+                                                </div>
+                                            </c:if>
+                                            <div class="img">
+                                                <img src="assets/images/products/${product.image}" class="card-img-top pt-2" alt="${product.image}">
+                                                <div class="overlay">
+                                                    <p>
+                                                        <a href="#">
+                                                            <i class="fas fa-cart-plus mr-2"></i>Thêm vào giỏ
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 pb-3 px-0">
+                                                <a href="detail?id=${product.id}" class="card-title text-center mb-1 mt-2">${product.name}</a>
                                                 <p class="text-center my-0">${product.displayPrice}<sup>đ</sup></p>
-                                                <p class="text-center my-0">
-                                                    <a href=""><i class="fas fa-cart-plus mt-2"></i></a>
-                                                </p>
                                             </div>
                                         </div>
                                     </div>

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,6 +15,12 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <form class="form-inline my-2 my-lg-0 mr-3" action="search" method="post">
+                    <input class="form-control input-text-search" type="text" name="inputSearch" placeholder="Tìm kiếm..." />
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
                 <li class="nav-item active">
                     <a class="nav-link" href="get-list-product"><i class="fas fa-home mr-1"></i>Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
@@ -46,12 +52,6 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="search" method="post">
-                <input class="form-control mr-sm-2" type="text" name="inputSearch" placeholder="Search..." />
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
         </div>
     </div>
 </nav>

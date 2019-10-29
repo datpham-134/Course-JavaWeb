@@ -46,18 +46,42 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5 mt-5">
-                    <h3 class="mt-5">${requestScope.product.name}
-                        <c:if test="${requestScope.product.status == 2}">
-                            <sup><span class="badge badge-success ml-1">SALE</span></sup>
-                        </c:if>
-                    </h3>
-                    <p>Mã sản phẩm: ${requestScope.product.code}</p>
-                    <h4 class="mt-3">${requestScope.product.displayPrice}<sup>đ</sup></h4>
-                    <a href="add-to-cart?id=${requestScope.product.id}" class="btn btn-outline-danger w-50 mt-4"><i class="fas fa-cart-plus mr-2"></i>Thêm vào giỏ hàng</a>
-                    <a href="" class="btn btn-outline-success w-25 mt-4 ml-2">Mua ngay</a>
-                    <br>
-                    <label class="mt-4"><b>Thông tin sản phẩm:</b></label>
-                    <p>${requestScope.product.description}</p>
+                    <div class="product-details">
+                        <h3 class="mt-5">${requestScope.product.name}
+                            <c:if test="${requestScope.product.status == 2}">
+                                <sup><span class="badge badge-success ml-1">SALE</span></sup>
+                            </c:if>
+                        </h3>
+                        <p>Mã sản phẩm: ${requestScope.product.code}</p>
+                        <h4 class="mt-3">${requestScope.product.displayPrice}<sup>đ</sup></h4>
+                        <a href="add-to-cart?id=${requestScope.product.id}" class="btn btn-outline-danger w-50 mt-4"><i class="fas fa-cart-plus mr-2"></i>Thêm vào giỏ hàng</a>
+                        <a href="" class="btn btn-outline-success w-25 mt-4 ml-2">Mua ngay</a>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 info">
+                                <p class="description bd-t pt-3 mt-4">
+                                    <label>Chi tiết sản phẩm</label>
+                                <span>${requestScope.product.description}</span>
+                                </p>
+                                <p class="local bd-t pt-3">
+                                    <label>Mua hàng trực tiếp tại cửa hàng</label>
+                                    <ul>
+                                        <li>133 Thái Hà, Phường Trung Liệt, Q.Đống Đa, Hà Nội</li>
+                                        <li>135 Nguyễn Văn Cừ, Phường Ngọc Lâm, Quận Long Biên, Hà Nội</li>
+                                    </ul>
+                                </p>
+                                <p class="refund bd-t pt-3">
+                                    <label>Giao hàng và đổi trả</label>
+                                    <ul>
+                                        <li>Đổi hàng trong vòng 72h</li>
+                                        <li>Phí vận chuyển nội thành Hà Nội: 20.000<sup>đ</sup> </li>
+                                        <li>Phí vận chuyển ngoại thành/ngoại tỉnh: tùy thuộc vào địa điểm</li>
+                                        <li>Thanh toán khi nhận hàng</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
