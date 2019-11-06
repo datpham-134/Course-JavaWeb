@@ -157,6 +157,56 @@ body {
     vertical-align: middle;
 }
 
+.border-dashed {
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+}
+
+/* Toast */
+
+.toast {
+    display: none;
+}
+
+.toast-error {
+    background-color: #dc3545;
+}
+
+.toast-error .toast-header {
+    background-color: #dc3545;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.toast-success {
+    background-color: #3bac47;
+}
+
+.toast-success .toast-header {
+    background-color: #3bac47;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.toast-body {
+    color: #fff;
+}
+
+.toast .close {
+    color: #fff;
+    text-shadow: none;
+    opacity: .5;
+}
+
+.toast .close:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover {
+    opacity: 1;
+}
+
 
 * {
     box-sizing: border-box;

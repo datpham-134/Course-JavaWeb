@@ -5,8 +5,6 @@
  */
 package controller.page;
 
-import entity.Account;
-import entity.AccountDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,15 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import service.AccountDetailService;
 
 /**
  *
  * @author Shado
  */
-@WebServlet(name = "Checkout", urlPatterns = {"/checkout"})
-public class Checkout extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/login"})
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,12 +33,7 @@ public class Checkout extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-            Account account = (Account) session.getAttribute("logined");
-            AccountDetail accountDetail = new AccountDetailService().getOne(account.getAccountDetailId());
-            
-            request.setAttribute("accountDetailInfo", accountDetail);
-            request.getRequestDispatcher("client/checkout.jsp").forward(request, response);       
+            request.getRequestDispatcher("client/sign-in.jsp").forward(request, response);
         }
     }
 

@@ -5,31 +5,21 @@
  */
 package controller.client;
 
-import dao.OrderDao;
-import dao.OrderDetailDao;
-import entity.Account;
-import entity.Cart;
-import entity.Order;
-import entity.ShipingInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import service.OrderDetailService;
-import service.OrderService;
-import service.ShipingInfoService;
 
 /**
  *
  * @author Shado
  */
-@WebServlet(name = "CheckoutOrder", urlPatterns = {"/checkout-order"})
-public class CheckoutOrder extends HttpServlet {
+@WebServlet(name = "LogoutProcess", urlPatterns = {"/log-out"})
+public class LogoutProcess extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,54 +33,11 @@ public class CheckoutOrder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-
         try (PrintWriter out = response.getWriter()) {
-
-            String name = request.getParameter("name");
-            String mobile = request.getParameter("mobile");
-            String address = request.getParameter("address");
-            String note = request.getParameter("note");
-
-            ShipingInfo shipingInfo = ShipingInfo.builder()
-                    .name(name).mobile(mobile).address(address).build();
-
-            int shipingInfoId = new ShipingInfoService().addShipingInfoReturnId(shipingInfo);
-            if (shipingInfoId > 0) {
-                HttpSession session = request.getSession();
-                List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
-                double totalPrice = 0;
-                for (Cart c : listCart) {
-                    totalPrice += c.getTotalPrice();
-                }
-                
-                Account account = (Account) session.getAttribute("logined");
-
-                Order order = Order.builder()
-                        .accountId(account.getId())
-                        .shipingInfoId(shipingInfoId)
-                        .totalPrice(totalPrice)
-                        .note(note)
-                        .status(1)
-                        .build();
-                int orderId = new OrderService().addOrderReturnId(order);
-                if (orderId > 0) {
-                    boolean check = new OrderDetailService().addListCart(listCart, orderId);
-                    if (check) {
-                        session.removeAttribute("listCart");
-                        response.sendRedirect("thank");
-                    } else {
-                        // remove order
-                        // remove shipingInfo
-                        response.sendRedirect("error");
-                    }
-                } else {
-                    // remove shipingInfo
-                    response.sendRedirect("error");
-                }
-            } else {
-                response.sendRedirect("error");
-            }
+            
+            HttpSession session = request.getSession();
+            session.removeAttribute("logined");
+            response.sendRedirect("get-list-product");
         }
     }
 

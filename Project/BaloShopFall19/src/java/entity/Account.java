@@ -18,13 +18,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Order {
+public class Account {
     
     private int id;
-    private int accountId;
-    private int shipingInfoId;
+    private int accountDetailId;
+    private String email;
+    private String password;
+    private int roleId;
     private String createDate;
-    private double totalPrice;
-    private String note;
+    private String activeCode;
     private int status;
 }

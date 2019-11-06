@@ -4,6 +4,7 @@
     Author     : Shado
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,9 +22,6 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <li class="nav-item active">
-                    <a class="nav-link" href="get-list-product"><i class="fas fa-home mr-1"></i>Trang chủ <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-shopping-cart mr-1"></i>Giỏ hàng <sup>${sessionScope.listCart.size()}</sup>
@@ -51,6 +49,30 @@
                         </c:choose>
                     </div>
                 </li>
+                <c:choose>
+                    <c:when test="${sessionScope.logined == null}">
+                        <li class="nav-item active">
+                            <a class="nav-link" href=""><i class="fas fa-edit fa-fw mr-1"></i>Đăng ký</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="login"><i class="fas fa-sign-in-alt fa-fw mr-1"></i>Đăng nhập</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle mr-1"></i>${sessionScope.logined.email}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#"><i class="fas fa-user fa-fw mr-2"></i>Trang cá nhân</a>
+                                <a class="dropdown-item" href="#"><i class="far fa-file-alt fa-fw mr-2"></i>Đơn hàng</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-history fa-fw mr-2"></i>Lịch sử</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="log-out"><i class="fas fa-sign-out-alt fa-fw mr-2"></i>Đăng xuất</a>
+                            </div>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>

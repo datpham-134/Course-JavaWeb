@@ -18,13 +18,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Order {
+public class Role {
     
     private int id;
-    private int accountId;
-    private int shipingInfoId;
-    private String createDate;
-    private double totalPrice;
-    private String note;
+    private String name;
     private int status;
 }
