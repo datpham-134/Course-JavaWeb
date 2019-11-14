@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 px-0 mt-3">
+                <div class="col-md-8 px-0 mt-5">
                     <div class="collapse" id="collapseExample">
                         <h5>Nhập thông tin địa chỉ giao hàng mới</h5>
                         <p>Hàng hóa sẽ được giao đến địa chỉ này sau khi xác nhận.</p>
